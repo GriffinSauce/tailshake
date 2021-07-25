@@ -1,0 +1,55 @@
+{
+  "name": "tailshake",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/tailshake.cjs.js",
+  "module": "dist/tailshake.esm.js",
+  "types": "dist/tailshake.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "./build.js -debug -watch -inline-sourcemap",
+    "build": "./build.js",
+    "build:declaration": "tsc --declaration --outFile dist/estrella-starter.d.ts --emitDeclarationOnly",
+    "prepublishOnly": "npm run build",
+    "lint:es": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint:ts": "npx tsc -p tsconfig.json --noEmit",
+    "lint": "yarn lint:ts && yarn lint:es",
+    "format": "prettier --write .",
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "ts-coverage": "typescript-coverage-report"
+  },
+  "dependencies": {
+    "tailwindcss": "^2.2.7"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "@types/tailwindcss": "^2.2.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "babel-jest": "^27.0.6",
+    "esbuild": "^0.12.15",
+    "esbuild-jest": "^0.5.0",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-sonarjs": "^0.9.1",
+    "estrella": "^1",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "typescript": "^4.1.3",
+    "typescript-coverage-report": "^0.6.0"
+  },
+  "volta": {
+    "node": "14.17.3",
+    "yarn": "1.22.10"
+  }
+}
