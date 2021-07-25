@@ -18,6 +18,13 @@ isDisabled = true;
 tailshake("text-blue-400", isDisabled && "text-gray-400") // => "text-gray-400"
 ```
 
+Known issues:
+
+- overrides don't work for classes without a value or unrelated classnames, examples:
+  - `border-8` will not override `border`, this is practically ok because the specific class is declared later and wins
+  - `block` will not override `flex`, you should use toggling as a workaround (or create a PR with a fix!)
+- built assuming a close-to-default Tailwind configuration, no promises when you're using custom plugins and such, please create an issue describing any problems with custom configurations.
+
 ## Install
 
 ```
@@ -50,14 +57,14 @@ const Button = (
 ```.tsx
 const Card = ({ classNames }) => (
   <div classNames={tailshake(
-    'bg-white rounded',
+    'bg-white rounded-md',
     classNames
   )}>
     Neat!
   </div>
 )
 
-// Customise radius, notice this overrides the default rounded class
+// Customise radius, notice this overrides the default rounded-md class
 <Card classNames="rounded-lg">
 
 // Add spacing
