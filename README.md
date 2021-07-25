@@ -9,21 +9,11 @@ tailshake("text-white", "text-gray-100") // => "text-gray-100"
 Falsy values are ignored, which means you can use tailshake to easily toggle classlists:
 
 ```.js
-let isDisabled = false;
+tailshake("text-blue-400", isDisabled && "text-gray-400")
 
-tailshake("text-blue-400", isDisabled && "text-gray-400") // => "text-blue-400"
-
-isDisabled = true;
-
-tailshake("text-blue-400", isDisabled && "text-gray-400") // => "text-gray-400"
+isDisabled = false // => "text-blue-400"
+isDisabled = true // => "text-gray-400"
 ```
-
-Known issues:
-
-- overrides don't work for classes without a value or unrelated classnames, examples:
-  - `border-8` will not override `border`, this is practically ok because the specific class is declared later and wins
-  - `block` will not override `flex`, you should use toggling as a workaround (or create a PR with a fix!)
-- built assuming a close-to-default Tailwind configuration, no promises when you're using custom plugins and such, please create an issue describing any problems with custom configurations.
 
 ## Install
 
@@ -102,3 +92,21 @@ Simple example
   )}
 />
 ```
+
+## Known issues
+
+_Nobody is perfect._
+
+- overrides don't work for classes without a value or unrelated classnames, examples:
+  - `border-8` will not override `border`, this is practically ok because the specific class is declared later and wins
+  - `block` will not override `flex`, you should use toggling as a workaround (or create a PR with a fix!)
+- this library assumes a close-to-default Tailwind configuration, so no promises when you're using custom plugins lots of customisation. Please do create an issue describing any problems with custom configurations!
+
+## Alternatives
+
+Some other options you might consider:
+
+- [tailwindcss-class-combiner](https://github.com/robit-dev/tailwindcss-class-combiner#readme)
+- [tailwind-classlist](https://github.com/seancdinan/tailwind-classlist)
+
+Both of these packages appear to be unmaintained, they have served as inspiration for the approach and test cases for Tailshake.

@@ -1,20 +1,5 @@
 import colors from "tailwindcss/colors";
 
-/**
- * Merge multiple class lists, with toggling and overrides
- *
- * <div className={mergeClasses(
- *   'p-3 text-blue-500',
- *   isActive && 'text-white bg-blue-500 font-semibold'
- * )} />
- *
- * isActive true will return 'p-3 text-white bg-blue-500 font-semibold'
- * isActive false will return 'p-3 text-blue-500'
- *
- * Ispired by
- * https://github.com/robit-dev/tailwindcss-class-combiner#readme
- */
-
 type InputClassList = string | null | false | 0 | undefined;
 
 // Some plugins have the same prefix (eg. fontSize and textColor share "text")
@@ -114,6 +99,20 @@ const processInput = (input: InputClassList[]): string => {
 
 const cache = new Map();
 
+/**
+ * Merges multiple class lists, with toggling and overrides
+ *
+ * @example
+ * ```
+ * <div className={mergeClasses(
+ *   'p-3 text-blue-500',
+ *   isActive && 'text-white bg-blue-500 font-semibold'
+ * )} />
+ *
+ * // isActive true will return 'p-3 text-white bg-blue-500 font-semibold'
+ * // isActive false will return 'p-3 text-blue-500'
+ * ```
+ */
 const mergeWithCache = (...input: InputClassList[]): string => {
   if (!input.length) return ""; // Nothing passed
 

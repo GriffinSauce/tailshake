@@ -70,4 +70,21 @@ describe("merging", () => {
     const output = mergeClasses("ring", "focus:ring-blue-500 focus:ring-0");
     expect(output).toEqual("ring focus:ring-blue-500 focus:ring-0");
   });
+
+  it("preserves double varients", () => {
+    const a =
+      "bg-blue-500 md:hover:bg-blue-600 sm:hover:bg-blue-400 hover:bg-blue-200";
+    const b = "bg-red-500 md:hover:bg-red-600 hover:bg-red-600 fixed";
+    const result =
+      "bg-red-500 md:hover:bg-red-600 sm:hover:bg-blue-400 hover:bg-red-600 fixed";
+    expect(mergeClasses(a, b)).toEqual(result);
+  });
+
+  it(`combines 2 classLists with classes that aren't valid Tailwind classes`, () => {
+    const a = "bg-blue-500 text-xs sc-0dWm9Vdw2";
+    const b = "bg-red-500 fixed test-class";
+    expect(mergeClasses(a, b)).toEqual(
+      "bg-red-500 text-xs sc-0dWm9Vdw2 fixed test-class"
+    );
+  });
 });
