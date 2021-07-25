@@ -2,6 +2,8 @@
   "name": "tailshake",
   "version": "0.0.1",
   "license": "MIT",
+  "repository": "https://github.com/GriffinSauce/tailshake.git",
+  "author": "Joris Griffioen (https://joris.rocks)",
   "main": "dist/tailshake.cjs.js",
   "module": "dist/tailshake.esm.js",
   "types": "dist/tailshake.d.ts",
@@ -22,7 +24,8 @@
     "test": "jest",
     "test-watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "ts-coverage": "typescript-coverage-report"
+    "ts-coverage": "typescript-coverage-report",
+    "release": "release-it"
   },
   "dependencies": {
     "tailwindcss": "^2.2.7"
@@ -45,6 +48,7 @@
     "estrella": "^1",
     "jest": "^27.0.6",
     "prettier": "^2.3.2",
+    "release-it": "^14.10.1",
     "typescript": "^4.1.3",
     "typescript-coverage-report": "^0.6.0"
   },
