@@ -2,6 +2,22 @@
 
 Tailshake combines TailwindCSS classes and shakes off any conflicts.
 
+```.js
+tailshake("text-white", "text-gray-100") // => "text-gray-100"
+```
+
+Falsy values are ignored, which means you can use tailshake to easily toggle classlists:
+
+```.js
+let isDisabled = false;
+
+tailshake("text-blue-400", isDisabled && "text-gray-400") // => "text-blue-400"
+
+isDisabled = true;
+
+tailshake("text-blue-400", isDisabled && "text-gray-400") // => "text-gray-400"
+```
+
 ## Install
 
 ```
