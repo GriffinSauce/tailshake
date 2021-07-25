@@ -1,6 +1,24 @@
 # Tailshake
 
-Tailshake combines TailwindCSS classes and shakes off any conflicts.
+Tailshake combines TailwindCSS classes and shakes off any conflicts. It helps compose and toggle Tailwind styles.
+
+## Install
+
+```
+yarn add tailshake
+
+// or
+
+npm install tailshake
+```
+
+## Usage examples
+
+```.tsx
+import tailshake from 'tailshake'
+```
+
+A simple example:
 
 ```.js
 tailshake("text-white", "text-gray-100") // => "text-gray-100"
@@ -14,18 +32,6 @@ tailshake("text-blue-400", isDisabled && "text-gray-400")
 isDisabled = false // => "text-blue-400"
 isDisabled = true // => "text-gray-400"
 ```
-
-## Install
-
-```
-yarn add tailshake
-
-// or
-
-npm install tailshake
-```
-
-## Usage examples
 
 _Examples use React but the library does not care where you use it. :)_
 
