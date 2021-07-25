@@ -3,10 +3,13 @@
   "version": "0.0.2",
   "license": "MIT",
   "repository": "https://github.com/GriffinSauce/tailshake.git",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "author": "Joris Griffioen (https://joris.rocks)",
-  "main": "dist/tailshake.cjs.js",
-  "module": "dist/tailshake.esm.js",
-  "types": "dist/tailshake.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist"
@@ -15,7 +18,7 @@
     "start": "npm run dev",
     "dev": "./build.js -debug -watch -inline-sourcemap",
     "build": "./build.js",
-    "build:declaration": "tsc --declaration --outFile dist/tailshake.d.ts --emitDeclarationOnly",
+    "build:declaration": "tsc --declaration --outFile dist/index.d.ts --emitDeclarationOnly --project ./tsconfig.build.json",
     "prepublishOnly": "npm run build && npm run build:declaration",
     "lint:es": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:ts": "npx tsc -p tsconfig.json --noEmit",

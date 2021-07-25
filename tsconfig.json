@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
+    "module": "esnext",
+    "rootDir": "./src",
     "declaration": true,
     "strict": true,
     "esModuleInterop": true,
+    "moduleResolution": "node",
   },
   "include": [
-    "src/**/*.ts",    
+    "src/**/*.ts",
   ],
   "exclude": ["node_modules"]
 }

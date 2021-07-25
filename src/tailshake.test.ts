@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import mergeClasses from ".";
+import mergeClasses from "./tailshake";
 
 it("returns the classList when only one is passed", () => {
   const output = mergeClasses("text-white");
