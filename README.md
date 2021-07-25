@@ -33,7 +33,7 @@ _Examples use React but the library does not care where you use it. :)_
 
 ```.tsx
 const Button = (
-  <button classNames={tailshake(
+  <button className={tailshake(
     'bg-white text-blue',
     'hover:bg:blue hover:text-white'
   )}>
@@ -45,20 +45,20 @@ const Button = (
 ### Compose classlists to allow extension or overrides
 
 ```.tsx
-const Card = ({ classNames }) => (
-  <div classNames={tailshake(
+const Card = ({ className }) => (
+  <div className={tailshake(
     'bg-white rounded-md',
-    classNames
+    className
   )}>
     Neat!
   </div>
 )
 
 // Customise radius, notice this overrides the default rounded-md class
-<Card classNames="rounded-lg">
+<Card className="rounded-lg">
 
 // Add spacing
-<Card classNames="mb-6">
+<Card className="mb-6">
 ```
 
 ### Compose classlists to support multiple styles
@@ -71,7 +71,7 @@ const buttonAppearanceClasses = {
 }
 
 const Button = ({ appearance }) =>  (
-  <button classNames={tailshake(
+  <button className={tailshake(
     buttonBaseClasses,
     buttonAppearanceClasses[appearance],
   )}>
