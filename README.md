@@ -2,6 +2,9 @@
 
 Tailshake combines TailwindCSS classes and shakes off any conflicts. It helps compose and toggle Tailwind styles.
 
+> [!WARNING]  
+> This project is archived, use [tailwind-merge](https://www.npmjs.com/package/tailwind-merge) instead.
+
 ## Install
 
 ```
